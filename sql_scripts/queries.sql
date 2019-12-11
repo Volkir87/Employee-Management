@@ -1,5 +1,8 @@
+use ems_db
+
 select e1.first_name as 'First Name', e1.last_name as 'Last Name', r.title as 'Title', d.name as 'Department', 
-concat(e2.first_name, ' ', e2.last_name) as 'Manager'
+case when e1.manager_id is not null then concat(e2.first_name, ' ', e2.last_name)
+else 'No manager' end  as 'Manager'
 from employee e1
 left outer join employee e2 on e1.manager_id = e2.id
 left outer join role r on e1.role_id = r.id
@@ -19,4 +22,13 @@ select d.name as 'Department', sum(r.salary) as 'Salary budget'
 from employee e
 inner join role r on r.id = e.role_id
 inner join department d on d.id = r.department_id
-group by d.name
+group by d.name;
+
+
+update employee 
+set manager_id = 
+where id = 
+
+update employee 
+set role_id = 
+where id = 
