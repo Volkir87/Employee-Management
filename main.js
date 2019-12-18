@@ -150,6 +150,7 @@ async function departmentMenuController(connection){
     }
 }
 
+// given an array of objects with ID and value, will find an ID for a given value
 function getID(objArray, value) {
     let id;
     for (let obj of objArray){
@@ -160,6 +161,7 @@ function getID(objArray, value) {
     return id;
 }
 
+// given an array of objects with IDs and values will generate an array of values
 function getNameList(objArray) {
     let result = [];
     for (obj of objArray){
